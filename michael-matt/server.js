@@ -75,7 +75,7 @@ app.put('/articles/:id', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
   // It is refering to steps 3-5 in the diagram, and Article.prototype.updateRecord is interscting with server.js. CRUD = update.
   client.query(
-    `UPDATE articles SET author = Kevin Bacon WHERE;`, []
+    `Up SET author = Kevin Bacon WHERE;`, []
   )
     .then(() => {
       response.send('update complete')
@@ -104,7 +104,7 @@ app.delete('/articles', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
   // PUT YOUR RESPONSE HERE
   client.query(
-    'TRUNCATE TABLE articles;'
+    'DELETE FROM articles(title, author, "authorUrl", category, "publishedOn", body);'
   )
     .then(() => {
       response.send('Delete complete')
