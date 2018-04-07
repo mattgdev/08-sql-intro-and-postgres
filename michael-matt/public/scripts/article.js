@@ -9,7 +9,7 @@ function Article (rawDataObj) {
     this[key] = rawDataObj[key];
   }, this);
 
-  // STRETCH COMMENT: How might we refactor code to handle the "this" issue in another way?
+  // STRETCH : How might we refactor code to handle the "this" issue in another way?
 
   // STRETCH COMMENT: DOUBLE STRETCH COMMENT: How could rawDataObj properties be applied to article instance in one short line? Hint: It's an ES6 feature we haven't covered yet. To the docs!
 }
