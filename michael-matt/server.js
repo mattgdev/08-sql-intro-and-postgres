@@ -27,8 +27,8 @@ app.use(express.static('./public'));
 
 // REVIEW: Routes for requesting HTML resources
 app.get('/new', (request, response) => {
-  // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js, if any, is interacting with this particular piece of `server.js`? What part of CRUD, if any, is being enacted/managed by this particular piece of code?
-  // NUMBER 5 on the diagram is the response......CRUD = Read?np
+  // COMMENTED: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js, if any, is interacting with this particular piece of `server.js`? What part of CRUD, if any, is being enacted/managed by this particular piece of code?
+  // NUMBER 5 on the diagram is the response.It is interacting with Article.fetchAll.  CRUD = Read
   response.sendFile('new.html', {root: './public'});
 });
 
@@ -36,7 +36,7 @@ app.get('/new', (request, response) => {
 // REVIEW: Routes for making API calls to use CRUD Operations on our database
 app.get('/articles', (request, response) => {
   console.log('someone wants articles and stuff')
-  // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
+  // COMMENTED: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
   // Number 3 in the diagram is the query going to the database.  It is interacting with the main Article function which replaces rawDataObj.  CRUD = Read
   client.query('SELECT * FROM articles;')
     .then(function(result) {
@@ -115,7 +115,6 @@ app.delete('/articles', (request, response) => {
   // Steps 3-5 in the diagram. Interacting with Article.truncateTable in artilce.js.  CRUD = delete
   client.query(
     'TRUNCATE TABLE articles;'
-    // 'DELETE * FROM articles;'
   )
     .then(() => {
       response.send('Delete complete')
